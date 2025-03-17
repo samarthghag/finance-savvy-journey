@@ -9,6 +9,75 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      budgets: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string | null
+          end_date: string | null
+          id: string
+          period: string
+          start_date: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category: string
+          created_at?: string | null
+          end_date?: string | null
+          id?: string
+          period: string
+          start_date: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string | null
+          end_date?: string | null
+          id?: string
+          period?: string
+          start_date?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      education_modules: {
+        Row: {
+          category: string
+          content: Json
+          created_at: string | null
+          description: string
+          id: string
+          level: string
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          category: string
+          content: Json
+          created_at?: string | null
+          description: string
+          id?: string
+          level: string
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          content?: Json
+          created_at?: string | null
+          description?: string
+          id?: string
+          level?: string
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       education_progress: {
         Row: {
           completed_at: string | null
@@ -93,6 +162,48 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      recurring_expenses: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string | null
+          description: string
+          end_date: string | null
+          frequency: string
+          id: string
+          next_date: string
+          start_date: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category: string
+          created_at?: string | null
+          description: string
+          end_date?: string | null
+          frequency: string
+          id?: string
+          next_date: string
+          start_date: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string | null
+          description?: string
+          end_date?: string | null
+          frequency?: string
+          id?: string
+          next_date?: string
+          start_date?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
       }
       trading_accounts: {
         Row: {
@@ -190,23 +301,35 @@ export type Database = {
       }
       users: {
         Row: {
+          avatar_url: string | null
           created_at: string | null
           display_name: string | null
+          email: string | null
+          first_name: string | null
           id: string
+          last_name: string | null
           preferences: Json | null
           updated_at: string | null
         }
         Insert: {
+          avatar_url?: string | null
           created_at?: string | null
           display_name?: string | null
+          email?: string | null
+          first_name?: string | null
           id: string
+          last_name?: string | null
           preferences?: Json | null
           updated_at?: string | null
         }
         Update: {
+          avatar_url?: string | null
           created_at?: string | null
           display_name?: string | null
+          email?: string | null
+          first_name?: string | null
           id?: string
+          last_name?: string | null
           preferences?: Json | null
           updated_at?: string | null
         }
