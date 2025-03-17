@@ -10,6 +10,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Illustration from './ui/illustrations';
 
 // Sample stock data
 const stocks = [
@@ -132,26 +133,30 @@ const PaperTrading = () => {
   return (
     <div className="space-y-8 w-full">
       {/* Header Section */}
-      <div className="glass-card rounded-xl p-6 animate-scale-in">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="glass-card rounded-xl p-6 animate-scale-in relative overflow-hidden">
+        <div className="absolute -right-16 -bottom-16 opacity-10">
+          <Illustration name="investing" size="lg" />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
           <div className="space-y-2">
             <h3 className="text-sm font-medium text-muted-foreground">Account Value</h3>
             <p className="text-3xl font-bold flex items-center">
-              <DollarSign className="h-6 w-6 text-primary mr-1" />
+              <DollarSign className="h-6 w-6 text-finance-600 mr-1" />
               {totalAccountValue.toFixed(2)}
             </p>
           </div>
           <div className="space-y-2">
             <h3 className="text-sm font-medium text-muted-foreground">Cash Balance</h3>
             <p className="text-3xl font-bold flex items-center">
-              <DollarSign className="h-6 w-6 text-primary mr-1" />
+              <DollarSign className="h-6 w-6 text-finance-600 mr-1" />
               {balance.toFixed(2)}
             </p>
           </div>
           <div className="space-y-2">
             <h3 className="text-sm font-medium text-muted-foreground">Portfolio Value</h3>
             <p className="text-3xl font-bold flex items-center">
-              <DollarSign className="h-6 w-6 text-primary mr-1" />
+              <DollarSign className="h-6 w-6 text-finance-600 mr-1" />
               {portfolioValue.toFixed(2)}
             </p>
           </div>
@@ -162,7 +167,7 @@ const PaperTrading = () => {
         {/* Portfolio Holdings */}
         <div className="lg:col-span-2 space-y-4">
           <h2 className="text-xl font-semibold flex items-center gap-2">
-            <BarChart2 className="h-5 w-5" />
+            <BarChart2 className="h-5 w-5 text-finance-700" />
             Your Portfolio
           </h2>
           
@@ -203,7 +208,7 @@ const PaperTrading = () => {
                           <td className="p-4">
                             <div className={cn(
                               "flex items-center",
-                              gainLoss >= 0 ? "text-green-600" : "text-red-600"
+                              gainLoss >= 0 ? "text-finance-600" : "text-red-600"
                             )}>
                               {gainLoss >= 0 ? (
                                 <ArrowUpRight className="h-4 w-4 mr-1" />
@@ -227,7 +232,7 @@ const PaperTrading = () => {
                       <td className="p-4">
                         <div className={cn(
                           "flex items-center font-semibold",
-                          totalGainLoss >= 0 ? "text-green-600" : "text-red-600"
+                          totalGainLoss >= 0 ? "text-finance-600" : "text-red-600"
                         )}>
                           {totalGainLoss >= 0 ? (
                             <ArrowUpRight className="h-4 w-4 mr-1" />
@@ -248,8 +253,8 @@ const PaperTrading = () => {
           ) : (
             <div className="glass-card rounded-xl p-8 text-center">
               <div className="flex justify-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <AlertCircle className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-full bg-finance-100 flex items-center justify-center text-finance-700">
+                  <AlertCircle className="h-6 w-6" />
                 </div>
               </div>
               <h3 className="text-lg font-medium mb-2">No Positions Yet</h3>
@@ -261,7 +266,7 @@ const PaperTrading = () => {
           
           {/* Stock Market */}
           <h2 className="text-xl font-semibold flex items-center gap-2 mt-8">
-            <TrendingUp className="h-5 w-5" />
+            <TrendingUp className="h-5 w-5 text-finance-700" />
             Market Overview
           </h2>
           
@@ -288,7 +293,7 @@ const PaperTrading = () => {
                       <td className="p-4">
                         <div className={cn(
                           "flex items-center",
-                          stock.change >= 0 ? "text-green-600" : "text-red-600"
+                          stock.change >= 0 ? "text-finance-600" : "text-red-600"
                         )}>
                           {stock.change >= 0 ? (
                             <ArrowUpRight className="h-4 w-4 mr-1" />
@@ -312,7 +317,7 @@ const PaperTrading = () => {
         {/* Order Form */}
         <div className="space-y-4">
           <h2 className="text-xl font-semibold flex items-center gap-2">
-            <LineChart className="h-5 w-5" />
+            <LineChart className="h-5 w-5 text-finance-700" />
             Place Order
           </h2>
           
@@ -364,7 +369,7 @@ const PaperTrading = () => {
                   className={cn(
                     "py-2 px-4 rounded-md font-medium transition-colors",
                     orderForm.type === "buy"
-                      ? "bg-green-600 text-white"
+                      ? "bg-finance-600 text-white"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   )}
                 >
@@ -434,7 +439,7 @@ const PaperTrading = () => {
               className={cn(
                 "w-full py-3 px-4 rounded-md font-medium text-white transition-colors",
                 orderForm.type === "buy"
-                  ? "bg-green-600 hover:bg-green-700"
+                  ? "bg-finance-600 hover:bg-finance-700"
                   : "bg-red-600 hover:bg-red-700"
               )}
             >

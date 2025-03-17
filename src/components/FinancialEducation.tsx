@@ -2,6 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { BookOpen, Award, DollarSign, TrendingUp, Send, Tag, PieChart, LineChart } from 'lucide-react';
+import Illustration from './ui/illustrations';
 
 interface CategoryProps {
   title: string;
@@ -17,7 +18,7 @@ const categories: CategoryProps[] = [
     title: "Investment Fundamentals",
     description: "Learn the basics of investing and building a portfolio.",
     icon: <TrendingUp className="h-6 w-6" />,
-    iconColor: "bg-blue-100 text-blue-600",
+    iconColor: "bg-finance-100 text-finance-700",
     topics: ["Asset Classes", "Risk & Return", "Portfolio Diversification", "Time Value of Money"]
   },
   {
@@ -31,7 +32,7 @@ const categories: CategoryProps[] = [
     title: "Stock Trading",
     description: "Master stock analysis and trading techniques.",
     icon: <LineChart className="h-6 w-6" />,
-    iconColor: "bg-green-100 text-green-600",
+    iconColor: "bg-finance-100 text-finance-700",
     topics: ["Technical Analysis", "Fundamental Analysis", "Market Orders", "Trading Psychology"]
   },
   {
@@ -45,7 +46,7 @@ const categories: CategoryProps[] = [
     title: "Personal Finance",
     description: "Optimize your personal financial management.",
     icon: <DollarSign className="h-6 w-6" />,
-    iconColor: "bg-red-100 text-red-600",
+    iconColor: "bg-finance-100 text-finance-700",
     topics: ["Budgeting", "Debt Management", "Emergency Fund", "Financial Goals"]
   },
   {
@@ -61,9 +62,13 @@ const FinancialEducation = () => {
   return (
     <div className="space-y-8 w-full">
       {/* Header Section */}
-      <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 mb-4">
-          <Award className="h-6 w-6 text-primary" />
+      <div className="text-center space-y-4 max-w-3xl mx-auto relative">
+        <div className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 opacity-70 hidden md:block">
+          <Illustration name="education" size="md" />
+        </div>
+        
+        <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-finance-100 text-finance-700 mb-4">
+          <Award className="h-6 w-6" />
         </div>
         <h1 className="section-heading">Financial Knowledge Hub</h1>
         <p className="text-lg text-muted-foreground">
@@ -106,7 +111,7 @@ const CategoryCard = ({ title, description, icon, iconColor, topics, delay = 0 }
           {topics.map(topic => (
             <span 
               key={topic}
-              className="inline-flex items-center text-xs font-medium rounded-full px-2.5 py-1 bg-primary/10 text-primary"
+              className="inline-flex items-center text-xs font-medium rounded-full px-2.5 py-1 bg-finance-100 text-finance-700"
             >
               {topic}
             </span>
