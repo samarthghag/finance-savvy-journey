@@ -1,69 +1,107 @@
-# Welcome to your Lovable project
+# Finance Savvy Journey
 
-## Project info
+A comprehensive financial management and education platform designed to help users track expenses, learn financial concepts, and practice investment strategies through a paper trading simulator.
 
-**URL**: https://lovable.dev/projects/e0ba678f-e164-46a7-b21d-4a2b75be2751
+## Features
 
-## How can I edit this code?
+- **Expense Tracker**: Monitor and categorize your spending habits with an intuitive interface
+- **Financial Education**: Access curated resources on investment, mutual funds, and essential financial concepts
+- **Paper Trading Simulator**: Practice investment strategies without risking real money
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Backend**: Supabase
+- **State Management**: React Query
+- **Routing**: React Router
+- **Authentication**: Supabase Auth
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e0ba678f-e164-46a7-b21d-4a2b75be2751) and start prompting.
+## Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v14 or later)
+- npm or yarn package manager
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Clone the Repository
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone https://github.com/yourusername/finance-savvy-journey.git
+cd finance-savvy-journey
 ```
 
-**Edit a file directly in GitHub**
+### Install Dependencies
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm install
+# or
+yarn install
+```
 
-**Use GitHub Codespaces**
+### Environment Setup
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Create a `.env` file in the root directory with your Supabase credentials:
 
-## What technologies are used for this project?
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-This project is built with .
+### Run Development Server
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## How can I deploy this project?
+The application will be available at `http://localhost:5173`
 
-Simply open [Lovable](https://lovable.dev/projects/e0ba678f-e164-46a7-b21d-4a2b75be2751) and click on Share -> Publish.
+### Build for Production
 
-## I want to use a custom domain - is that possible?
+```bash
+npm run build
+# or
+yarn build
+```
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## Project Structure
+
+- `/src`: Main source code directory
+  - `/components`: Reusable UI components
+  - `/pages`: Page components for each route
+  - `/integrations`: External service integrations like Supabase
+  - `/lib`: Utility functions and shared libraries
+  - `/hooks`: Custom React hooks
+
+## Deployment
+
+You can deploy this project using services like:
+- Netlify
+- Vercel
+- GitHub Pages
+
+For detailed deployment instructions, see our [deployment guide](#).
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
+- [Supabase](https://supabase.io/) for backend services
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+
+## Support
+
+For support, email support@finacesavvyjourney.com or open an issue in the repository.
