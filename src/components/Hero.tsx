@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, CreditCard, BookOpen, BarChart2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Illustration from './ui/illustrations';
+// Use lazy loading for illustrations
+const Illustration = lazy(() => import('./ui/illustrations'));
 
 const Hero = () => {
   return (
@@ -50,15 +51,17 @@ const Hero = () => {
           
           <div className="lg:w-1/2 flex justify-center relative">
             <div className="relative w-full h-[400px] animate-float">
-              <div className="absolute top-0 left-0 transform -translate-x-1/4 -translate-y-1/4">
-                <Illustration name="education" size="md" />
-              </div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <Illustration name="finance" size="lg" />
-              </div>
-              <div className="absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4">
-                <Illustration name="trading" size="md" />
-              </div>
+              <Suspense fallback={<div className="h-full w-full flex items-center justify-center">Loading...</div>}>
+                <div className="absolute top-0 left-0 transform -translate-x-1/4 -translate-y-1/4">
+                  <Illustration name="education" size="md" />
+                </div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <Illustration name="finance" size="lg" />
+                </div>
+                <div className="absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4">
+                  <Illustration name="trading" size="md" />
+                </div>
+              </Suspense>
             </div>
           </div>
         </div>
@@ -100,7 +103,9 @@ const FeatureCard = ({ icon, title, description, delay, illustration }: FeatureC
           {icon}
         </div>
         <div className="w-20 h-20">
-          <Illustration name={illustration} size="sm" />
+          <Suspense fallback={<div className="h-full w-full flex items-center justify-center">Loading...</div>}>
+            <Illustration name={illustration} size="sm" />
+          </Suspense>
         </div>
       </div>
       <h3 className="text-xl font-semibold mb-2 font-spaceGrotesk">{title}</h3>

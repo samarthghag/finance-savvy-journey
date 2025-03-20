@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface AnimatedTransitionProps {
@@ -17,23 +17,26 @@ const AnimatedTransition: React.FC<AnimatedTransitionProps> = ({ children }) => 
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
     
-    // Add a small delay to ensure the CSS transition is applied
-    const timeout = setTimeout(() => {
-      element.style.opacity = '1';
-      element.style.transform = 'translateY(0)';
-    }, 50);
+    // Use requestAnimationFrame for better performance
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      });
+    });
     
-    return () => clearTimeout(timeout);
+    // No need for setTimeout which can cause delays
   }, [location.pathname]);
   
   return (
     <div 
       ref={elementRef}
-      className="transition-all duration-500 ease-in-out"
+      className="transition-all duration-300 ease-in-out"
     >
       {children}
     </div>
   );
 };
 
-export default AnimatedTransition;
+// Use memo to prevent unnecessary re-renders
+export default memo(AnimatedTransition);
