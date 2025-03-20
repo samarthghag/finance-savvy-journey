@@ -50,13 +50,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link 
             to="/" 
-            className="flex items-center space-x-2 text-primary font-semibold text-xl"
+            className="flex items-center space-x-2 text-primary font-semibold text-xl font-spaceGrotesk"
           >
             <span className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse-gentle"></div>
-              <div className="absolute inset-[2px] bg-primary/20 rounded-full"></div>
-              <div className="absolute inset-[4px] bg-primary/30 rounded-full"></div>
-              <div className="absolute inset-[6px] bg-primary rounded-full flex items-center justify-center">
+              <div className="absolute inset-0 bg-finance-100 rounded-full animate-pulse-gentle"></div>
+              <div className="absolute inset-[2px] bg-finance-200 rounded-full"></div>
+              <div className="absolute inset-[4px] bg-finance-300 rounded-full"></div>
+              <div className="absolute inset-[6px] bg-finance-500 rounded-full flex items-center justify-center">
                 <span className="text-white text-xs font-bold">FE</span>
               </div>
             </span>
@@ -64,7 +64,7 @@ const Navbar = () => {
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1 font-spaceGrotesk">
             <Link 
               to="/" 
               className={cn(
@@ -107,7 +107,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link
               to="/dashboard"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-finance-600 text-white shadow hover:bg-finance-700 h-9 px-4 py-2"
             >
               Get Started
               <ChevronRight className="ml-1 h-4 w-4" />
@@ -132,7 +132,7 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-card m-4 rounded-xl animate-fade-in overflow-hidden">
+        <div className="md:hidden glass-card m-4 rounded-xl animate-fade-in overflow-hidden font-spaceGrotesk">
           <nav className="flex flex-col divide-y divide-border">
             <Link
               to="/"

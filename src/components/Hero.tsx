@@ -22,7 +22,7 @@ const Hero = () => {
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-primary animate-slide-down" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-primary animate-slide-down font-spaceGrotesk" style={{ animationDelay: '100ms' }}>
               <span className="block">Master Your Finances.</span>
               <span className="block mt-2">Empower Your Future.</span>
             </h1>
@@ -57,7 +57,7 @@ const Hero = () => {
                 <Illustration name="finance" size="lg" />
               </div>
               <div className="absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4">
-                <Illustration name="investing" size="md" />
+                <Illustration name="trading" size="md" />
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ type FeatureCardProps = {
   title: string;
   description: string;
   delay: number;
-  illustration: 'budget' | 'education' | 'analysis';
+  illustration: 'budget' | 'education' | 'analysis' | 'trading' | 'stocks' | 'wallet';
 };
 
 const FeatureCard = ({ icon, title, description, delay, illustration }: FeatureCardProps) => {
@@ -103,7 +103,7 @@ const FeatureCard = ({ icon, title, description, delay, illustration }: FeatureC
           <Illustration name={illustration} size="sm" />
         </div>
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2 font-spaceGrotesk">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
     </div>
   );
@@ -114,7 +114,7 @@ const featureItems = [
     icon: <CreditCard className="h-6 w-6" />,
     title: "Track Expenses",
     description: "Monitor your daily expenses, categorize spending, and gain insights into your financial habits.",
-    illustration: 'budget' as const
+    illustration: 'wallet' as const
   },
   {
     icon: <BookOpen className="h-6 w-6" />,
@@ -126,7 +126,7 @@ const featureItems = [
     icon: <BarChart2 className="h-6 w-6" />,
     title: "Practice Trading",
     description: "Develop your investment skills through paper trading without risking real money.",
-    illustration: 'analysis' as const
+    illustration: 'stocks' as const
   }
 ];
 

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -45,7 +46,7 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217 91% 60%;
     
-    --finance-green: 142 76% 45%;
+    --finance-green: 160 84% 39%;
     --finance-green-foreground: 210 40% 98%;
   }
 
@@ -86,7 +87,7 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased font-spaceGrotesk;
   }
 }
 
